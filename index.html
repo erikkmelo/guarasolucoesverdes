@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolagem Infinita com Paralaxe</title>
+    <title>Rolagem Infinita com Paralaxe Responsivo</title>
     <style>
         * {
             margin: 0;
@@ -12,31 +12,48 @@
         }
 
         body {
-            height: 100vh;
             overflow-x: hidden;
-            background: url('imagens/gv.png') repeat-y center/cover fixed;
+            background: black;
         }
 
-        .content {
-            height: 300vh; /* Para garantir espaço suficiente para rolagem */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        .scroll-container {
+            position: relative;
+            width: 100vw;
+            height: 300vh; /* Espaço extra para rolagem */
         }
+
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: auto;
+            aspect-ratio: 16 / 9; /* Mantém proporção 16:9 */
+            object-fit: cover;
+            transition: transform 0.1s linear;
+        }
+
     </style>
 </head>
 <body>
-    <div class="content">🌍 Role para ver o efeito!</div>
+
+    <div class="scroll-container">
+        <img src="'imagens/gv.png'" class="parallax" id="parallax1">
+        <img src="'imagens/gv.png'" class="parallax" id="parallax2" style="top: 100%;">
+    </div>
 
     <script>
         window.addEventListener("scroll", function () {
-            let scrollPos = window.scrollY * 0.5; // Efeito de paralaxe mais suave
-            document.body.style.backgroundPosition = `center ${scrollPos}px`;
+            let scrollPos = window.scrollY * 0.5; // Paralaxe suave
+            document.getElementById("parallax1").style.transform = `translateY(${scrollPos}px)`;
+            document.getElementById("parallax2").style.transform = `translateY(${scrollPos}px)`;
+
+            // Reinicia a posição para criar loop infinito
+            if (scrollPos >= window.innerHeight) {
+                window.scrollTo(0, 0);
+            }
         });
     </script>
+
 </body>
 </html>
-
