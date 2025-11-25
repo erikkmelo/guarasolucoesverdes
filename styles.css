@@ -182,12 +182,13 @@ section {
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  text-align: left;
+  text-align: center;
   transition: all 0.3s ease;
 }
 
 /* AJUSTE DE TAMANHO DE FONTE NAS CAIXAS */
 .service-card h3 {
+  
   font-size: 1.1rem;
 }
 
@@ -198,6 +199,7 @@ section {
 .service-card .price {
   font-size: 1rem;
 }
+
 
 .service-card:hover {
   background: linear-gradient(135deg, #424242 0%, #596000 100%);
@@ -364,7 +366,13 @@ footer {
 #contact-info a:hover {
   color: #596000;
 }
-
+/* Compensa a altura do header ao clicar nos links do menu */
+#hero,
+#services,
+#about,
+#contact {
+  scroll-margin-top: 300px; /* ajuste fino conforme a altura do header */
+}
 
 /* ================================================================= */
 /* FAIXAS FULL-WIDTH                                                 */
@@ -382,4 +390,5 @@ footer {
   padding-right: 1rem;
   box-sizing: border-box;
 }
+
 
