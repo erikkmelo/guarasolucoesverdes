@@ -186,6 +186,19 @@ section {
   transition: all 0.3s ease;
 }
 
+/* AJUSTE DE TAMANHO DE FONTE NAS CAIXAS */
+.service-card h3 {
+  font-size: 1.1rem;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+}
+
+.service-card .price {
+  font-size: 1rem;
+}
+
 .service-card:hover {
   background: linear-gradient(135deg, #424242 0%, #596000 100%);
   transform: translateY(-4px);
@@ -369,3 +382,4 @@ footer {
   padding-right: 1rem;
   box-sizing: border-box;
 }
+
