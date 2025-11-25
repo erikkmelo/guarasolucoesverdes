@@ -1,0 +1,371 @@
+/* ================================================================= */
+/* TIPOGRAFIA PADRONIZADA (3 tamanhos: 2rem, 1.2rem, 1rem)           */
+/* ================================================================= */
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans', 'Helvetica World', sans-serif;
+  color: #EFEFEF;
+  background: linear-gradient(135deg, #700000 0%, #960000 100%);
+  position: relative;
+  overflow-x: hidden;
+  text-align: left;
+  font-size: 1rem; /* texto padrão */
+}
+
+/* Títulos principais (seções) */
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Subtítulos (serviços etc.) */
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+/* Navegação, botões e preço em tamanho intermediário */
+nav a,
+.cta-button,
+.price {
+  font-size: 1.2rem;
+}
+
+/* Textos gerais */
+p,
+.service-card p,
+.more-text p,
+#contact-info {
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+/* ================================================================= */
+/* BACKGROUND COM IMAGEM SUAVE                                      */
+/* ================================================================= */
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+  z-index: -1;
+  background-image: url('https://cdn.pixabay.com/photo/2021/06/11/14/01/sea-6328687_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+/* ================================================================= */
+/* HEADER + LOGO + MENU                                              */
+/* ================================================================= */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(90deg, rgba(112,0,0,1) 0%, rgba(150,0,0,1) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-image {
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+/* MENU */
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  justify-content: center;
+}
+
+nav a {
+  color: #EFEFEF;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #596000;
+}
+
+
+/* ================================================================= */
+/* HERO                                                              */
+/* ================================================================= */
+
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.hero p {
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 0.8rem 2rem;
+  background-color: #596000;
+  color: #EFEFEF;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #596000 0%, #3d4300 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+
+/* ================================================================= */
+/* SEÇÕES                                                            */
+/* ================================================================= */
+
+section {
+  margin: 3rem 0;
+}
+
+
+/* ================================================================= */
+/* SERVIÇOS                                                          */
+/* ================================================================= */
+
+.services h2 {
+  text-align: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: #424242;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  background: linear-gradient(135deg, #424242 0%, #596000 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+.price {
+  color: #EFEFEF;
+  font-weight: bold;
+  display: block;
+}
+
+/* Texto expandido */
+
+.toggle-box {
+  display: none;
+}
+
+.service-header {
+  cursor: pointer;
+  display: block;
+  text-align: center;
+}
+
+.more-text {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  margin-top: 0;
+}
+
+.toggle-box:checked ~ .more-text {
+  max-height: 260px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+
+/* ================================================================= */
+/* SOBRE E CONTATO                                                   */
+/* ================================================================= */
+
+.about,
+.contact {
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.about {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.contact {
+  background-color: rgba(0,0,0,0.3);
+}
+
+.about p {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.contact p {
+  text-align: justify;
+}
+
+
+/* ================================================================= */
+/* FOTO DO ENGENHEIRO                                               */
+/* ================================================================= */
+
+.about-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.about-photo img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.35);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+
+/* ================================================================= */
+/* RODAPÉ                                                            */
+/* ================================================================= */
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #424242;
+  color: #EFEFEF;
+}
+
+
+/* ================================================================= */
+/* BOTÃO WHATSAPP                                                    */
+/* ================================================================= */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: all 0.25s ease;
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+}
+
+.whatsapp-float:hover {
+  background: linear-gradient(135deg, #1ebe5c 0%, #25d366 100%);
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+
+/* ================================================================= */
+/* RESPONSIVIDADE                                                    */
+/* ================================================================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-image {
+    max-width: 400px;
+  }
+}
+
+
+/* ================================================================= */
+/* LINKS DO CONTATO                                                  */
+/* ================================================================= */
+
+#contact-info a {
+  color: #EFEFEF;
+}
+
+#contact-info a:hover {
+  color: #596000;
+}
+
+
+/* ================================================================= */
+/* FAIXAS FULL-WIDTH                                                 */
+/* ================================================================= */
+
+header,
+.hero,
+.about,
+.contact,
+footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
