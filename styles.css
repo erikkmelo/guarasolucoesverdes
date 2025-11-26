@@ -440,7 +440,22 @@ section {
   color: #700000;
   font-weight: 600;
 }
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* proporção 16:9 */
+  height: 0;
+  margin: 2rem 0;
+}
 
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 /* ================================================================= */
 /* SOBRE E CONTATO                                                   */
 /* ================================================================= */
@@ -699,3 +714,4 @@ footer {
 .post-card * {
   text-align: left !important;
 }
+
