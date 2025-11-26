@@ -21,9 +21,9 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Títulos das seções escuras */
-section:nth-of-type(2) h2,
-section:nth-of-type(4) h2 {
+/* Títulos em seções escuras */
+.services h2,
+.contact h2 {
   color: #efefef;
 }
 
@@ -35,13 +35,17 @@ nav a,
 }
 
 /* Textos gerais */
-p,
+p {
+  font-size: 1rem;
+  text-align: left;
+}
+
 .service-card p,
 .more-text p,
 #contact-info {
-  font-size: 1rem;
   text-align: center;
 }
+
 
 
 /* ================================================================= */
@@ -57,9 +61,6 @@ p,
   border-radius: 0;
   box-shadow: none;
 }
-
-
-
 
 /* ================================================================= */
 /* HEADER + LOGO + MENU                                              */
@@ -115,7 +116,6 @@ nav a:hover {
   color: #596000;
 }
 
-
 /* ================================================================= */
 /* HERO                                                              */
 /* ================================================================= */
@@ -136,23 +136,20 @@ nav a:hover {
   color: #424242;
 }
 
-
-
-
 /* texto com margem à esquerda */
 .hero-content {
   max-width: 520px;
-  background: rgba(239,239,239,0.85);
+
   padding: 1.8rem 1.5rem;
   border-radius: 12px;
   text-align: center;     /* Título, texto e botão centralizados */
-
   margin: 0 auto;         /* Caixa centralizada */
 }
 
+.hero-content p {
 
-
-
+  text-align: center;     /* Título, texto e botão centralizados */
+}
 
 .cta-button {
   padding: 0.8rem 2rem;
@@ -170,7 +167,6 @@ nav a:hover {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
-
 /* ================================================================= */
 /* SEÇÕES E ALTERNÂNCIA DE CORES                                     */
 /* ================================================================= */
@@ -181,24 +177,19 @@ section {
   background-color: #efefef;
 }
 
-/* segunda sessão (services) escura */
-section:nth-of-type(2) {
+/* seções escuras */
+.services,
+.contact {
   background-color: #424242;
   color: #EFEFEF;
 }
 
-/* terceira sessão (about) clara */
-section:nth-of-type(3) {
+/* blog e sobre permanecem claras */
+.blog,
+.about {
   background-color: #efefef;
   color: #424242;
 }
-
-/* quarta sessão (contact) escura */
-section:nth-of-type(4) {
-  background-color: #424242;
-  color: #EFEFEF;
-}
-
 
 /* ================================================================= */
 /* SERVIÇOS                                                          */
@@ -209,12 +200,15 @@ section:nth-of-type(4) {
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  align-items: flex-start; /* cada card com sua própria altura */
 }
 
 .service-card {
+  flex: 1 1 260px;        /* ocupa pelo menos 260px de largura */
+  max-width: 360px;       /* opcional, para não ficar gigante em telas grandes */
   background-color: #596000;
   color: #EFEFEF;
   padding: 1.5rem;
@@ -275,6 +269,177 @@ section:nth-of-type(4) {
   margin-top: 1rem;
 }
 
+/* ================================================================= */
+/* BLOG                                                              */
+/* ================================================================= */
+
+.blog h2 {
+  text-align: center;
+}
+
+.blog-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(260px, 1fr);
+  gap: 1.75rem;
+}
+
+.blog-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.3rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+/* Esconde posts filtrados */
+.post-card.hidden {
+  display: none !important;
+}
+
+/* Destaque para a categoria ativa */
+.sidebar-list a.active {
+  font-weight: 600;
+  color: #700000;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #777777;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+
+.post-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: #424242;
+}
+
+.post-title a:hover {
+  color: #700000;
+}
+
+.post-excerpt {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.post-readmore {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #700000;
+  font-weight: 600;
+  text-align: left !important;
+}
+
+/* Sidebar do blog (reaproveitando estilo) */
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-block {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-block h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #596000;
+}
+
+.sidebar-block p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0.3rem 0 0 0;
+  padding: 0;
+}
+
+.sidebar-list li + li {
+  margin-top: 0.25rem;
+}
+
+.sidebar-list a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #424242;
+}
+
+.sidebar-list a:hover {
+  color: #700000;
+}
+
+/* Página de post individual */
+.post-page-main {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.single-post {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 2.25rem 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.single-post h2 {
+  font-size: 1.8rem;
+  color: #700000;
+  margin-bottom: 0.75rem;
+}
+
+.single-post .post-meta {
+  margin-bottom: 1.2rem;
+}
+
+.single-post p {
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.single-post h3 {
+  font-size: 1.25rem;
+  margin: 1.25rem 0 0.5rem 0;
+  color: #596000;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #700000;
+  font-weight: 600;
+}
 
 /* ================================================================= */
 /* SOBRE E CONTATO                                                   */
@@ -298,7 +463,6 @@ section:nth-of-type(4) {
   text-align: justify;
 }
 
-
 /* ================================================================= */
 /* FOTO DO ENGENHEIRO                                               */
 /* ================================================================= */
@@ -318,7 +482,6 @@ section:nth-of-type(4) {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
-
 /* ================================================================= */
 /* RODAPÉ                                                            */
 /* ================================================================= */
@@ -328,6 +491,9 @@ footer {
   padding: 2rem;
   background-color: #424242;
   color: #EFEFEF;
+}
+footer p {
+  text-align: center;
 }
 
 
@@ -362,7 +528,6 @@ footer {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
-
 /* ================================================================= */
 /* RESPONSIVIDADE                                                    */
 /* ================================================================= */
@@ -393,14 +558,14 @@ footer {
     max-width: 92%;
     background: rgba(239, 239, 239, 0.9);
     padding: 1.2rem 1rem;
-    text-align: center; /* garante tudo centralizado */
+    text-align: center;
   }
 
   .hero-content .cta-button {
-    display: block;          /* vira bloco */
-    width: fit-content;      /* fica só do tamanho do conteúdo */
-    margin: 1rem auto 0 auto;/* centraliza horizontalmente */
-    text-align: center;      /* texto dentro do botão centralizado */
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0 auto;
+    text-align: center;
   }
 
   .services-grid {
@@ -410,9 +575,20 @@ footer {
   .logo-image {
     max-width: 340px;
   }
+
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-block {
+    flex: 1 1 240px;
+  }
 }
-
-
 
 /* ================================================================= */
 /* LINKS DO CONTATO                                                  */
@@ -429,10 +605,12 @@ footer {
 /* Compensa a altura do header ao clicar nos links do menu */
 #hero,
 #services,
+#blog,
 #about,
 #contact {
   scroll-margin-top: 300px; /* ajuste fino conforme a altura do header */
 }
+
 /* ================================================================= */
 /* FAIXAS FULL-WIDTH                                                 */
 /* ================================================================= */
@@ -440,6 +618,7 @@ footer {
 header,
 .hero,
 .services,
+.blog,
 .about,
 .contact,
 footer {
@@ -451,4 +630,72 @@ footer {
   box-sizing: border-box;
 }
 
+/* ================================================================= */
+/* IMAGENS DOS ARTIGOS                                                 */
+/* ================================================================= */
 
+.post-image img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
+.post-image.full img {
+  width: 100%;
+  border-radius: 0;
+}
+
+.post-figure {
+  text-align: center;
+  margin: 1.6rem 0;
+}
+
+.post-figure img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.post-figure figcaption {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.35rem;
+}
+
+/* Layout horizontal dos artigos */
+.post-card.horizontal {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Texto ocupa mais espaço  */
+.post-card.horizontal .post-content {
+  flex: 1;
+}
+
+/* Caixa da imagem */
+.post-card.horizontal .post-thumb img {
+  width: 160px; /* ajuste como quiser */
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+
+}
+
+/* Responsivo: empilha no celular */
+@media (max-width: 700px) {
+  .post-card.horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .post-card.horizontal .post-thumb img {
+    width: 200px;
+  }
+}
+
+.post-card,
+.post-card * {
+  text-align: left !important;
+}
