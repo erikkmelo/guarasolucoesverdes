@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: 'Noto Sans', 'Helvetica World', sans-serif;
   color: #424242;
-  background: linear-gradient(135deg, #efefefdc 0%, #EFEFEF 100%);
+  background-color: #efefef;
   position: relative;
   overflow-x: hidden;
   text-align: left;
@@ -16,15 +16,15 @@ body {
 /* Títulos principais (seções) */
 h2 {
   font-size: 2rem;
+  color: #700000;           /* cor padrão: vermelho para seções claras */
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
-/* Subtítulos (serviços etc.) */
-h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0.5rem 0;
+/* Títulos das seções escuras */
+section:nth-of-type(2) h2,
+section:nth-of-type(4) h2 {
+  color: #efefef;
 }
 
 /* Navegação, botões e preço em tamanho intermediário */
@@ -45,31 +45,20 @@ p,
 
 
 /* ================================================================= */
-/* BACKGROUND COM IMAGEM SUAVE                                      */
+/* LAYOUT GERAL                                                      */
 /* ================================================================= */
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  z-index: -1;
-  background-image: url('https://www.infoescola.com/wp-content/uploads/2008/07/guar%C3%A1_371546434.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(1px);
-  pointer-events: none;
-}
 
 .page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
+
 
 
 /* ================================================================= */
@@ -82,8 +71,12 @@ header {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(90deg, rgba(112,0,0,1) 0%, rgba(150,0,0,1) 100%);
+  padding: 0.5rem 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(239, 239, 239, 1) 0%,
+    rgba(239, 239, 239, 1) 100%
+  );
   position: sticky;
   top: 0;
   z-index: 10;
@@ -98,7 +91,7 @@ header {
 
 .logo-image {
   display: block;
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
   height: auto;
 }
@@ -113,13 +106,13 @@ nav {
 }
 
 nav a {
-  color: #EFEFEF;
+  color: #700000;
   text-decoration: none;
   font-weight: 500;
 }
 
 nav a:hover {
-  color: #424242;
+  color: #596000;
 }
 
 
@@ -128,14 +121,38 @@ nav a:hover {
 /* ================================================================= */
 
 .hero {
-  text-align: center;
-  padding: 3rem 1.5rem;
-  background-color: rgba(239,239,239,0.9);
+  position: relative;
+  display: flex;
+  justify-content: center;  /* conteúdo centralizado */
+  align-items: center;
+  padding: 6rem 2rem;
+  min-height: 520px;
+
+  background-image: url("images/guara-01.svg");
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+
+  color: #424242;
 }
 
-.hero p {
-  margin-bottom: 2rem;
+
+
+
+/* texto com margem à esquerda */
+.hero-content {
+  max-width: 520px;
+  background: rgba(239,239,239,0.85);
+  padding: 1.8rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;     /* Título, texto e botão centralizados */
+
+  margin: 0 auto;         /* Caixa centralizada */
 }
+
+
+
+
 
 .cta-button {
   padding: 0.8rem 2rem;
@@ -148,18 +165,38 @@ nav a:hover {
 }
 
 .cta-button:hover {
-  background: linear-gradient(135deg, #960000 0%, #596000 100%);
+  background: linear-gradient(135deg, #596000 0%, #960000 100%);
   transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
 
 /* ================================================================= */
-/* SEÇÕES                                                            */
+/* SEÇÕES E ALTERNÂNCIA DE CORES                                     */
 /* ================================================================= */
 
 section {
-  margin: 3rem 0;
+  padding: 3rem 1.5rem;
+  margin: 0;
+  background-color: #efefef;
+}
+
+/* segunda sessão (services) escura */
+section:nth-of-type(2) {
+  background-color: #424242;
+  color: #EFEFEF;
+}
+
+/* terceira sessão (about) clara */
+section:nth-of-type(3) {
+  background-color: #efefef;
+  color: #424242;
+}
+
+/* quarta sessão (contact) escura */
+section:nth-of-type(4) {
+  background-color: #424242;
+  color: #EFEFEF;
 }
 
 
@@ -182,14 +219,13 @@ section {
   color: #EFEFEF;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   transition: all 0.3s ease;
 }
 
 /* AJUSTE DE TAMANHO DE FONTE NAS CAIXAS */
 .service-card h3 {
-  
   font-size: 1.1rem;
 }
 
@@ -201,11 +237,10 @@ section {
   font-size: 1rem;
 }
 
-
 .service-card:hover {
-  background: linear-gradient(135deg, #960000 0%, #596000 100%);
+  background: linear-gradient(135deg, #596000 0%, #700000 100%);
   transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
 .price {
@@ -248,16 +283,8 @@ section {
 .about,
 .contact {
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 0;
   text-align: center;
-}
-
-.about {
-  background-color: rgba(239,239,239,0.95);
-}
-
-.contact {
-  background-color: rgba(239,239,239,0.95);
 }
 
 .about p {
@@ -287,8 +314,8 @@ section {
   height: 220px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid rgba(255,255,255,0.35);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  border: 4px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -319,7 +346,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: all 0.25s ease;
 }
@@ -332,7 +359,7 @@ footer {
 .whatsapp-float:hover {
   background: linear-gradient(135deg, #1ebe5c 0%, #596000 100%);
   transform: scale(1.08);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -340,10 +367,40 @@ footer {
 /* RESPONSIVIDADE                                                    */
 /* ================================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
 
   .hero {
-    padding: 2.5rem 1.5rem;
+    display: block;
+    padding: 0;
+    min-height: auto;
+    background: none;
+  }
+
+  .hero::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 400px; /* imagem começa mais cedo visualmente */
+    background-image: url("images/guara-02.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-content {
+    margin: 1rem auto 2rem auto; /* texto começa mais cedo */
+    margin-top: -160px;
+    max-width: 92%;
+    background: rgba(239, 239, 239, 0.9);
+    padding: 1.2rem 1rem;
+    text-align: center; /* garante tudo centralizado */
+  }
+
+  .hero-content .cta-button {
+    display: block;          /* vira bloco */
+    width: fit-content;      /* fica só do tamanho do conteúdo */
+    margin: 1rem auto 0 auto;/* centraliza horizontalmente */
+    text-align: center;      /* texto dentro do botão centralizado */
   }
 
   .services-grid {
@@ -351,9 +408,10 @@ footer {
   }
 
   .logo-image {
-    max-width: 400px;
+    max-width: 340px;
   }
 }
+
 
 
 /* ================================================================= */
@@ -361,12 +419,13 @@ footer {
 /* ================================================================= */
 
 #contact-info a {
-  color: #424242;
+  color: #EFEFEF;
 }
 
 #contact-info a:hover {
   color: #596000;
 }
+
 /* Compensa a altura do header ao clicar nos links do menu */
 #hero,
 #services,
@@ -374,13 +433,13 @@ footer {
 #contact {
   scroll-margin-top: 300px; /* ajuste fino conforme a altura do header */
 }
-
 /* ================================================================= */
 /* FAIXAS FULL-WIDTH                                                 */
 /* ================================================================= */
 
 header,
 .hero,
+.services,
 .about,
 .contact,
 footer {
