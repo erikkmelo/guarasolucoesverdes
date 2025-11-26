@@ -20,7 +20,6 @@
         <a href="index.html#hero">Início</a>
         <a href="index.html#services">Serviços</a>
         <a href="index.html#about">Sobre</a>
-
         <a href="artigos.html">Artigos</a>
       </nav>
     </header>
@@ -36,7 +35,7 @@
               <p class="post-meta">Publicado em 26/11/2025 • Gestão Ambiental</p>
 
               <h3 class="post-title">
-                <a href="post-exemplo.html">
+                <a href="artigos/G-00-como-estruturar-um-programa-de-gestao-ambiental-municipal.html">
                   Como estruturar um programa de gestão ambiental municipal
                 </a>
               </h3>
@@ -46,11 +45,9 @@
                 que realmente oriente decisões e priorize o que mais impacta o município.
               </p>
 
-              <a class="post-readmore" href="post-exemplo.html">Ler artigo completo</a>
-            </div>
-
-            <div class="post-thumb">
-              <img src="images/guara-01.svg" alt="Ícone">
+              <a class="post-readmore" href="artigos/G-00-como-estruturar-um-programa-de-gestao-ambiental-municipal.html">
+                Ler artigo completo
+              </a>
             </div>
           </article>
 
@@ -58,7 +55,7 @@
           <article class="post-card categoria-licenciamento">
             <p class="post-meta">Publicado em 18/11/2025 • Licenciamento</p>
             <h3 class="post-title">
-              <a href="post-exemplo.html">
+              <a href="Artigos\L-00-5-erros-em-estudos-ambientais-que-atrasam-o-licenciamento.html">
                 5 erros em estudos ambientais que atrasam o licenciamento
               </a>
             </h3>
@@ -66,14 +63,16 @@
               Entenda quais falhas de escopo, dados e comunicação técnica mais travam processos
               e como evitá-las desde o início do projeto.
             </p>
-            <a class="post-readmore" href="post-exemplo.html">Ler artigo completo</a>
+            <a class="post-readmore" href="Artigos\L-00-5-erros-em-estudos-ambientais-que-atrasam-o-licenciamento.html">
+              Ler artigo completo
+            </a>
           </article>
 
           <!-- Post 3: categoria residuos -->
           <article class="post-card categoria-residuos">
             <p class="post-meta">Publicado em 05/11/2025 • Resíduos Sólidos</p>
             <h3 class="post-title">
-              <a href="post-exemplo.html">
+              <a href="artigos/RS-00-coleta-seletiva-em-municipios-medios-por-onde-comecar.html">
                 Coleta seletiva em municípios médios, por onde começar
               </a>
             </h3>
@@ -81,11 +80,12 @@
               Estratégias simples e viáveis para iniciar a coleta seletiva sem depender de grandes
               investimentos imediatos, usando dados e priorização de áreas.
             </p>
-            <a class="post-readmore" href="post-exemplo.html">Ler artigo completo</a>
+            <a class="post-readmore" href="artigos/RS-00-coleta-seletiva-em-municipios-medios-por-onde-comecar.html">
+              Ler artigo completo
+            </a>
           </article>
 
-          <!-- A partir daqui você cola o bloco modelo de novos artigos
-               lembrando de colocar a classe categoria-xxx em cada artigo -->
+          <!-- Novos artigos seguem o mesmo padrão -->
         </div>
 
         <aside class="blog-sidebar">
@@ -100,7 +100,6 @@
           <section class="sidebar-block">
             <h3>Categorias</h3>
             <ul class="sidebar-list">
-              <!-- data-cat controla o filtro -->
               <li><a href="#" data-cat="all" class="active">Todos</a></li>
               <li><a href="#" data-cat="gestao">Gestão Ambiental</a></li>
               <li><a href="#" data-cat="licenciamento">Licenciamento</a></li>
@@ -132,7 +131,6 @@
     </a>
   </div>
 
-  <!-- Script de filtro por categoria -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const categoryLinks = document.querySelectorAll('.sidebar-list a[data-cat]');
@@ -144,11 +142,9 @@
 
           const cat = this.dataset.cat;
 
-          // marca link ativo
           categoryLinks.forEach(l => l.classList.remove('active'));
           this.classList.add('active');
 
-          // mostra ou esconde posts
           posts.forEach(post => {
             if (cat === 'all') {
               post.classList.remove('hidden');
