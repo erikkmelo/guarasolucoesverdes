@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instalação do QGIS e Teste Completo</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <div id="menu"></div>
+
+    <main class="post-page-main">
+      <article class="single-post">
+
+        <p class="post-meta">Publicado em 28/11/2025 • Geotecnologia</p>
+        <h2>Instalação do QGIS (versão mais estável) e criação do primeiro mapa</h2>
+
+        <h3>O que você vai ver nesse vídeo, na prática</h3>
+
+        <p>
+          Nesse vídeo, eu te mostro como você instala o QGIS de forma fácil, até o momento em que você consegue gerar um mapa simples e testar se está tudo funcionando direitinho no seu computador.
+          Ao longo do caminho, também comento alguns avisos técnicos importantes, para você instalar a versão adequada para seu caso, espaço em disco e conflitos com outros programas.
+        </p>
+
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/9SMYtcUmOw4"
+            title="Vídeo relacionado ao artigo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <h3>1. Preparando tudo e instalando o QGIS</h3>
+
+        <p>
+          Logo no começo, a ideia é bem direta: deixar o QGIS instalado e funcionando para que você consiga começar a criar seus mapas.
+          No site qgis.org
+          Escolha a opção adequada de downloads. No caso a versão LTR é a de longo prazo, mais estável, com a maior parte dos bugs já corrigida, enquanto a versão mais nova ainda pode ter falhas.
+        </p>
+
+        <p>
+          O passo a passo da instalação é bem simples: clicar em next, aceitar os termos, escolher o local de instalação e digitar a senha de administrador do computador.
+        </p>
+
+        <p>
+          Nessa versão do QGIS que instalei o espaço que ele ocupa depois de instalado é cerc de 3 GB.
+        </p>
+
+        <h3>2. Primeira configuração e instalação dos plugins essenciais</h3>
+
+        <p>
+          Com o QGIS aberto, o foco passa a ser deixar o programa pronto para conversar com bases de dados externas e mapas de fundo.
+          Você vai ver:
+        </p>
+
+        <p>
+          Para você entender o processo do zero, instalo dois plugins muito usados:
+        </p>
+
+        <p>
+          QuickMapServices (Kaps), que serve para adicionar mapas base, como Google Satellite.
+        </p>
+
+        <p>
+          O plugin do IBGE, que permite baixar dados censitários diretamente no QGIS.
+        </p>
+
+        <p>
+          Depois de instalar o QuickMapServices, eu mostro que não basta instalar o plugin. Você precisa ir em More Services e baixar o pacote de mapas, para liberar várias fontes de mapas de fundo. (isso é importante pros mapas aparecerem)
+        </p>
+
+        <p>
+          Dou algumas dicas importantes para seu dia a dia no vídeo.
+        </p>
+
+        <h3>3. Teste prático com dados do IBGE e estilo do mapa</h3>
+
+        <p>
+          Depois que o QGIS está instalado e configurado, nós fazemos um teste real, usando dados do IBGE, para ver se tudo está funcionando.
+          Você vai ver:
+        </p>
+
+        <p>
+          Como usar o plugin do IBGE para escolher um estado e um município. No vídeo, eu seleciono Minas Gerais e o município de Esmeraldas (escolha totalmente aleatória).
+        </p>
+
+        <p>
+          A escolha de variáveis básicas, por exemplo, o total de pessoas por setor censitário, e o carregamento dessa camada no QGIS.
+        </p>
+
+        <p>
+          Como trabalhar a visualização dessa camada:
+        </p>
+
+        <p>
+          A classificação dos dados usando o método de régua graduada, baseada no total de pessoas (valor absoluto, não densidade).
+        </p>
+
+        <p>
+          A inversão da paleta de cores para melhorar a leitura visual.
+        </p>
+
+        <p>
+          A aplicação de 50% de transparência na camada para enxergar melhor o mapa de fundo.
+        </p>
+
+        <p>
+          O uso de uma regra de divisão chamada “intervalos bonitinhos”, uma novidade dessa versão do QGIS, que ajuda a ter uma classificação mais intuitiva.
+        </p>
+
+        <p>
+          Nessa parte, você não só vê que o programa funciona, como já aprende um jeitinho simples de deixar o mapa mais bonito e legível.
+        </p>
+
+        <h3>4. Finalizando com o compositor de mapas e gerando uma imagem</h3>
+
+        <p>
+          Para fechar o teste, eu mostro como criar um layout de mapa e exportar uma imagem, simulando uma entrega simples.
+          Você vai ver:
+        </p>
+
+        <p>
+          A criação de um novo layout no compositor de mapas para uma impressão em folha A4.
+        </p>
+
+        <p>
+          A inserção do mapa dentro desse layout.
+        </p>
+
+        <p>
+          A exportação de uma imagem com 75 DPI, apenas para checar se o QGIS está exportando corretamente.
+        </p>
+
+        <p>
+          Esse passo serve como teste final: se você chegou aqui, instalou, configurou, carregou dados, estilizou e ainda gerou uma imagem, é sinal de que sua instalação está saudável.
+        </p>
+
+        <h3>5. Avisos técnicos importantes que aparecem ao longo do vídeo</h3>
+
+        <p>
+          Além do passo a passo, eu faço algumas observações que são muito importantes se você pretende ir além do básico.
+          Você vai ouvir sobre:
+        </p>
+
+        <p>
+          Conflito com Python  
+          O QGIS vem com um Python próprio. Se você já tem outras versões de Python instaladas, isso pode gerar conflito em usos mais avançados, principalmente quando você começar a:
+        </p>
+
+        <p>
+          Trabalhar com imagens de satélite.
+        </p>
+
+        <p>
+          Fazer reconhecimento semiautomático ou automático de imagens.
+        </p>
+
+        <p>
+          Rodar estatísticas mais avançadas, como regressão linear.
+        </p>
+
+        <p>
+          Usar ferramentas ligadas à Inteligência Artificial dentro do QGIS.  
+          No vídeo, eu comento que esse ajuste não é tratado ali, mas deixo o alerta para você saber que isso existe.
+        </p>
+
+        <p>
+          Espaço em disco  
+          Eu reforço a necessidade de conferir o espaço antes de instalar. O arquivo de download tem cerca de 1,3 GB, mas depois de descompactado e instalado, o QGIS pode passar facilmente dos 3 GB usados no seu HD ou SSD.
+        </p>
+
+        <p>
+          Velocidade de instalação  
+          Eu também comento que o tempo de instalação vai depender do desempenho do seu computador. Se o seu PC é mais antigo ou tem HD mecânico, é normal demorar um pouco mais.
+        </p>
+
+        <a href="../artigos.html#blog" class="back-link">Voltar para os artigos</a>
+
+      </article>
+    </main>
+
+    <div id="footer"></div>
+
+  </div>
+
+  <script>
+    fetch("../footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("menu").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

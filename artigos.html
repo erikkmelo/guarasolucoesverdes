@@ -4,32 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Artigos | Guará Soluções Verdes</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="page-wrapper">
-    <header>
-      <div class="logo-container">
-        <img
-          src="images/gv-02-br-fundo.png"
-          alt="Guará Soluções Verdes - Consultoria Ambiental"
-          class="logo-image"
-        />
-      </div>
-      <nav>
-        <a href="index.html#hero">Início</a>
-        <a href="index.html#services">Soluções</a>
-        <a href="index.html#about">Sobre</a>
-        <a href="artigos.html">Artigos</a>
-      </nav>
-    </header>
+    <div id="menu"></div>
 
     <section class="blog" id="blog">
       <h2>Artigos</h2>
 
       <div class="blog-layout">
         <div class="blog-main">
+
+          <!-- Post 4: categoria geoprocessamento -->
+          <article class="post-card categoria-geoprocessamento">
+            <p class="post-meta">Publicado em 28/11/2025 • Geoprocessamento</p>
+            <h3 class="post-title">
+              <a href="artigos\Geo-00-aula-0---instalacao-do-qgis-bratislava---2025.html">
+                Instalação do QGIS versão mais estável
+              </a>
+            </h3>
+            <p class="post-excerpt">
+              É possível instalar o QGIS e criar seu primeiro mapa ainda hoje. Esse vídeo te mostra exatamente o que você precisa fazer e o que evitar.
+            </p>
+            <a class="post-readmore" href="artigos\RS-00-coleta-seletiva-em-municipios-medios-por-onde-comecar.html">
+              Ler artigo completo
+            </a>
+          </article>
+
           <!-- Post 1: categoria gestao -->
           <article class="post-card horizontal categoria-gestao">
             <div class="post-content">
@@ -86,6 +88,8 @@
             </a>
           </article>
 
+
+
           <!-- Novos artigos seguem o mesmo padrão -->
         </div>
 
@@ -106,32 +110,36 @@
               <li><a href="#" data-cat="licenciamento">Licenciamento</a></li>
               <li><a href="#" data-cat="residuos">Resíduos Sólidos</a></li>
               <li><a href="#" data-cat="planejamento">Planejamento Territorial</a></li>
+              <li><a href="#" data-cat="geoprocessamento">Geoprocessamento</a></li>
             </ul>
           </section>
         </aside>
       </div>
     </section>
+    <div id="footer"></div>
 
-    <footer>
-      <p>© 2025 Erik Vieira de Melo LTDA. Todos os direitos reservados.</p>
-    </footer>
-
-    <a href="https://wa.me/5513991245734" 
-      class="whatsapp-float" 
-      target="_blank" 
-      aria-label="Fale conosco no WhatsApp">
-
-      <svg xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 32 32" 
-          width="35" height="35" 
-          fill="#ffffff">
-
-        <path d="M16.001 3.2c-7.061 0-12.8 5.739-12.8 12.8 0 2.256.589 4.457 1.715 6.4l-1.941 7.117 7.29-1.909c1.843.977 3.915 1.492 6.037 1.492h.001c7.061 0 12.8-5.739 12.8-12.8s-5.739-12.8-12.8-12.8zm0 23.467h-.001c-1.843 0-3.646-.492-5.227-1.421l-.374-.221-4.333 1.133 1.155-4.246-.244-.389c-1.043-1.657-1.594-3.563-1.594-5.523 0-5.685 4.63-10.315 10.315-10.315s10.315 4.63 10.315 10.315-4.63 10.315-10.315 10.315zm5.611-7.765c-.307-.154-1.816-.895-2.099-.996-.281-.103-.487-.154-.692.154-.205.307-.794.995-.972 1.199-.179.205-.358.231-.665.077-.307-.154-1.3-.48-2.475-1.532-.915-.814-1.533-1.818-1.713-2.126-.179-.307-.019-.478.135-.632.138-.137.307-.358.461-.537.154-.179.205-.307.307-.512.103-.205.051-.384-.026-.537-.077-.154-.692-1.664-.946-2.278-.249-.597-.508-.516-.697-.526-.179-.009-.384-.01-.589-.01s-.538.077-.819.384c-.28.307-1.075 1.05-1.075 2.565s1.101 2.976 1.257 3.183c.154.205 2.204 3.488 5.34 4.887.747.322 1.328.516 1.783.66.748.239 1.43.206 1.969.126.602-.09 1.854-.758 2.116-1.488.263-.73.263-1.365.18-1.496-.077-.131-.282-.205-.589-.359z"/>
-      </svg>
-
-    </a>
+  
   </div>
 
+  <!--carrega o header-->
+  <script>
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("menu").innerHTML = data;
+    });
+  </script>
+
+  <!--carrega o footer-->
+  <script>
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+  <!--mostra apenas a categoria selecionada-->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const categoryLinks = document.querySelectorAll('.sidebar-list a[data-cat]');
@@ -166,6 +174,3 @@
   </script>
 </body>
 </html>
-
-
-
